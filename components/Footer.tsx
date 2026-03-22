@@ -8,9 +8,9 @@ const Footer: React.FC = () => {
         <p className="mb-8">מחפש שותפים לדרך, יזמים עם ברק בעיניים ומשקיעים שרוצים לעשות טוב.</p>
         
         <div className="flex justify-center gap-6 mb-8">
-          <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-          <a href="#" className="hover:text-white transition-colors">Twitter</a>
-          <a href="#" className="hover:text-white transition-colors">Email</a>
+          <a href="https://www.linkedin.com/in/elad-ben-izhak-3a190a1/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
+          <a href="https://x.com/b_elad" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Twitter</a>
+          <a href="https://www.instagram.com/b_elad/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a>
         </div>
         
         <p className="text-sm">
