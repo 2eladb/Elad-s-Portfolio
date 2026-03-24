@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
         </p>
         
         <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-12 font-light">
-          מחבר בין עוצמת הטכנולוגיה לחוכמת האדמה. משקיע אימפקט, חקלאי ויוצר.
+          השקעות. אדמה. יצירה.
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center gap-4">

@@ -8,7 +8,9 @@ interface InvestmentData {
   tag: string;
   tagColor: string;
   year?: string;
+  slogan?: string;
   description: string;
+  whyInvested?: string;
   status?: string;
   url: string;
   urlLabel: string;
@@ -21,7 +23,11 @@ const investments: InvestmentData[] = [
     name: 'CarbonBlue',
     tag: 'Deep Tech',
     tagColor: 'bg-blue-100 text-blue-800',
-    description: 'טכנולוגיה פורצת דרך שמוציאה פחמן מהים ומייצרת סיד נקי לתעשייה. דוגמה מושלמת לסינרגיה בין צורך תעשייתי לשיקום אקולוגי.',
+    year: '2026',
+    slogan: 'ספיחת פחמן מהאוקיינוס וייצור סיד ירוק ללא פליטות.',
+    description: 'טכנולוגיה פורצת דרך (תהליך ה-EcoLime) המשתמשת במי ים כדי לספוח CO2 מהאטמוספירה בצורה יעילה וסקיילבילית. המערכת מייצרת סיד ירוק כתוצר לוואי בתהליך סגור, ובכך נותנת מענה כפול: ניקוי פחמן קיים ומניעת פליטות עתידיות בתעשייה.',
+    whyInvested: 'כי ייצור סיד ומלט אחראי לכ-8% מהפליטות בעולם. CarbonBlue מפצחת את המלכוד הזה – היא הופכת את האוקיינוס למשאב ספיחה ומייצרת חומר גלם נקי לתעשייה בו זמנית.',
+    status: 'החברה נמצאת בשלבי פיתוח והרחבה מתקדמים, עם פוטנציאל להפוך לאחד הכלים המרכזיים בעולם לספיחת פחמן מאסיבית. לחברה מוצר עובד עם התיכנות מוכחת',
     url: 'https://carbonblue.earth',
     urlLabel: 'לאתר החברה',
     gradient: 'from-blue-600 to-green-600'
@@ -32,8 +38,10 @@ const investments: InvestmentData[] = [
     tag: 'Renewables',
     tagColor: 'bg-yellow-100 text-yellow-800',
     year: '2018',
-    description: 'וולטה סולאר היא חברת אנרגיה סולארית. היא מקימה, מתחזקת ומתפעלת מערכות סולאריות מסחריות וביתיות במגוון מודלי מימון - רכישה, ליסינג ושותפות.',
-    status: 'החברה פעילה, מתקינה מאות גגות סולרים בשנה, ומתרחבת.',
+    slogan: 'מהפכת האנרגיה המבוזרת על הגגות.',
+    description: 'חברת אנרגיה סולארית מובילה המקימה, מתחזקת ומתפעלת מערכות סולאריות מסחריות וביתיות. החברה מנגישה את האנרגיה הירוקה במגוון מודלי מימון גמישים – רכישה, ליסינג ושותפות.',
+    whyInvested: 'כי בכל יום שעובר ומותקן עוד גג, מצב הכדור שלנו משתפר.',
+    status: 'החברה פעילה וצומחת, מתקינה מאות גגות סולאריים בשנה ומרחיבה את פריסת האנרגיה המתחדשת.',
     url: 'https://Volta.Solar',
     urlLabel: 'לאתר החברה',
     gradient: 'from-yellow-500 to-orange-500'
@@ -44,7 +52,10 @@ const investments: InvestmentData[] = [
     tag: 'Climate Fund',
     tagColor: 'bg-emerald-100 text-emerald-800',
     year: '2026',
-    description: 'השקעה ערכית בקרן הירוקה Gravity, המתמקדת בטכנולוגיות אקלים (Climate Tech) ופתרונות סביבתיים פורצי דרך.',
+    slogan: 'הבית לבניית חברות ה-Climate-Tech של המחר.',
+    description: 'קרן הון סיכון ומודל Venture Studio ייחודי המתמקד בפתרונות טכנולוגיים למשבר האקלים. Gravity לא רק משקיעה, היא בונה ומלווה חברות (כמו CarbonBlue) משלב הרעיון ועד לסקייל עולמי.',
+    whyInvested: 'כדי לתת גם למומחים אחרים לעזור לי לבחור את הטכנולוגיות המשמעותיות ביותר. אני מאמין בכוח של קבוצה ובניסיון שנצבר ב-Venture Studio כדי למקסם את האימפקט של הכסף שלי.',
+    status: 'הקרן פעילה בבנייה והשקעה בפורטפוליו של חברות פורצות דרך בתחומי האנרגיה והפחמן.',
     url: 'https://www.gravityclimatech.com',
     urlLabel: 'לאתר הקרן',
     gradient: 'from-emerald-500 to-teal-500'
@@ -54,33 +65,43 @@ const investments: InvestmentData[] = [
     name: 'Nextenna',
     tag: 'Connectivity',
     tagColor: 'bg-purple-100 text-purple-800',
-    description: 'טכנולוגיית אנטנות מתקדמת המאפשרת קישוריות רחבת פס וזמינה בכל מקום, תוך אופטימיזציה של צריכת אנרגיה וביצועים.',
+    year: '2021',
+    slogan: 'תקשורת לוויינית חכמה בצריכת אנרגיה אפסית.',
+    description: 'פיתוח אנטנות Phased Array דקות ומתקדמות המאפשרות חיבור לאינטרנט מכל נקודה על הגלובוס. הטכנולוגיה הייחודית של החברה (AI-based VDP) מאפשרת תקשורת מהירה ויציבה תוך הפחתה דרמטית של עלויות הייצור וצריכת האנרגיה של הטרמינלים.',
+    whyInvested: 'כי אי אפשר לנהל את משבר האקלים בלי נתונים. Nextenna בונה את התשתית שמאפשרת לנטר ולחבר כל פינה בעולם – מהאוקיינוסים ועד החוות המרוחקות – בצורה היעילה והנקייה ביותר.',
+    status: 'החברה צומחת במהירות, עם פתרונות המיועדים לשוק ה-LEO (לוויינים נמוכי מסלול) ולחיבור הדור הבא של עולם ה-IoT והניידות.',
     url: 'https://www.nextenna.com/',
     urlLabel: 'לאתר החברה',
     gradient: 'from-purple-600 to-indigo-600'
   },
   {
-    id: 'cortel',
-    name: 'Cortel',
-    tag: 'Communication',
+    id: 'coreteel',
+    name: 'Coreteel',
+    tag: 'Infrastructure',
     tagColor: 'bg-rose-100 text-rose-800',
-    description: 'חברת תקשורת מתקדמת המתמקדת בפתרונות קישוריות חכמים ויעילים.',
-    url: '#',
-    urlLabel: 'בקרוב',
+    year: '2018',
+    slogan: 'הגנה על תשתיות ומתכת ללא פליטות ורעלים.',
+    description: 'פיתוח טכנולוגיה פורצת דרך (Corrizon) להגנה על מתכות ותשתיות מפני קורוזיה. בשונה מהפתרונות המסורתיים המבוססים על חומרים רעילים ומזהמים, המוצרים של Coreteel הם על בסיס מים, ידידותיים לסביבה ולאדם, ומאריכים דרמטית את חיי התשתית.',
+    whyInvested: 'כי קורוזיה היא "הרוצח השקט" של תשתיות. האמנתי שאפשר להגן על העולם הבנוי שלנו בלי להרעיל את האדמה והמים סביבו. זה פתרון תעשייתי חיוני עם אפס פשרות סביבתיות.',
+    status: 'החברה פעילה גלובלית, מספקת פתרונות לתעשיות הנפט והגז, התחבורה והתשתיות, ומסייעת לארגונים לעמוד ביעדי ה-ESG שלהם.',
+    url: 'https://coreteel.com/',
+    urlLabel: 'לאתר החברה',
     gradient: 'from-rose-500 to-pink-500'
   }
 ];
 
-const InvestmentCard: React.FC<{ item: InvestmentData }> = ({ item }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
-
+const InvestmentCard: React.FC<{ 
+  item: InvestmentData; 
+  isExpanded: boolean; 
+  onToggle: () => void; 
+}> = ({ item, isExpanded, onToggle }) => {
   return (
     <div className="relative group">
       <div className={`absolute -inset-1 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200`}></div>
       <div className="relative bg-white rounded-2xl p-6 shadow-xl border border-slate-100 h-full flex flex-col transition-all duration-300">
         <div 
           className="flex items-center justify-between cursor-pointer"
-          onClick={() => setIsExpanded(!isExpanded)}
+          onClick={onToggle}
         >
           <div className="flex flex-col">
             <h3 className="text-xl font-bold text-slate-800">{item.name}</h3>
@@ -112,11 +133,20 @@ const InvestmentCard: React.FC<{ item: InvestmentData }> = ({ item }) => {
             >
               <div className="pt-4 mt-4 border-t border-slate-50">
                 {item.year && (
-                  <div className="text-xs font-bold text-slate-400 mb-3">שנת השקעה: {item.year}</div>
+                  <div className="text-xs font-bold text-slate-400 mb-2">שנת השקעה: {item.year}</div>
+                )}
+                {item.slogan && (
+                  <div className="text-sm font-bold text-slate-800 mb-3 italic">"{item.slogan}"</div>
                 )}
                 <p className="text-slate-600 mb-4 text-sm leading-relaxed">
                   {item.description}
                 </p>
+                {item.whyInvested && (
+                  <div className="mb-4">
+                    <h5 className="text-xs font-bold text-slate-800 mb-1">למה השקעתי?</h5>
+                    <p className="text-sm text-slate-600 italic">{item.whyInvested}</p>
+                  </div>
+                )}
                 {item.status && (
                   <div className="bg-green-50 rounded-lg p-3 mb-4">
                     <p className="text-xs text-green-800 font-medium">
@@ -147,17 +177,28 @@ const InvestmentCard: React.FC<{ item: InvestmentData }> = ({ item }) => {
 };
 
 const Investments: React.FC = () => {
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const handleToggle = (id: string) => {
+    setExpandedId(prevId => (prevId === id ? null : id));
+  };
+
   return (
     <section id="portfolio" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <SectionTitle 
           title="השקעות אימפקט" 
-          subtitle=" השקעות כלכליות שמשנה מציאות. מחפש פתרונות אמיתיים וסקיילביליים למשבר האקלים"
+          subtitle=" השקעות כלכליות שמשנות מציאות. מחפש פתרונות אמיתיים וסקיילביליים למשבר האקלים"
         />
 
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-16">
           {investments.map((item) => (
-            <InvestmentCard key={item.id} item={item} />
+            <InvestmentCard 
+              key={item.id} 
+              item={item} 
+              isExpanded={expandedId === item.id}
+              onToggle={() => handleToggle(item.id)}
+            />
           ))}
         </div>
 
