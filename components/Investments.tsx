@@ -98,7 +98,7 @@ const InvestmentCard: React.FC<{
   return (
     <div className="relative group">
       <div className={`absolute -inset-1 bg-gradient-to-r ${item.gradient} rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200`}></div>
-      <div className="relative bg-white rounded-2xl p-6 shadow-xl border border-slate-100 h-full flex flex-col transition-all duration-300">
+      <div className="relative bg-white rounded-2xl p-6 shadow-xl border border-slate-100 flex flex-col transition-all duration-300">
         <div 
           className="flex items-center justify-between cursor-pointer"
           onClick={onToggle}
@@ -191,7 +191,7 @@ const Investments: React.FC = () => {
           subtitle=" השקעות כלכליות שמשנות מציאות. מחפש פתרונות אמיתיים וסקיילביליים למשבר האקלים"
         />
 
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-16">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-16 items-start">
           {investments.map((item) => (
             <InvestmentCard 
               key={item.id} 
@@ -206,7 +206,7 @@ const Investments: React.FC = () => {
           <div>
             <h4 className="text-xl font-bold text-slate-800 mb-6">פילוסופיית ההשקעה שלי</h4>
             <p className="text-slate-600 leading-relaxed">
-              אני מאמין שהון הוא כלי לשינוי. ההשקעות שלי מתמקדות במיזמים שמשלבים היתכנות כלכלית גבוהה עם אימפקט סביבתי עמוק ומדיד.
+              אני מחפש בהשקעות חברות שיכולות להזיז את המחוג של המצב האקולוגי אפילו בקצת, אבל להזיז!
             </p>
           </div>
           <div className="grid sm:grid-cols-2 gap-8">
