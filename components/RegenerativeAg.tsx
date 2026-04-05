@@ -25,7 +25,7 @@ const RegenerativeAg: React.FC = () => {
     <section 
       className="relative py-[100px] px-5 bg-cover bg-center text-white"
       style={{ 
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/farm.jpg')` 
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/farm.jpg')` 
       }}
     >
       <div className="container mx-auto">
