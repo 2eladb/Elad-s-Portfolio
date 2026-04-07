@@ -22,12 +22,7 @@ const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => 
 
 const RegenerativeAg: React.FC = () => {
   return (
-    <section 
-      className="relative py-[100px] px-5 bg-cover bg-center text-white"
-      style={{ 
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/farm.jpg')` 
-      }}
-    >
+    <section className="relative py-[100px] px-5 bg-slate-900 text-white">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">אדמה | חוות גוונים</h2>
@@ -65,6 +60,14 @@ const RegenerativeAg: React.FC = () => {
 
         <div className="grid lg:grid-cols-5 gap-10 items-center">
           <div className="lg:col-span-2 space-y-6">
+            <div className="overflow-hidden rounded-2xl shadow-2xl">
+              <img 
+                src="farm.jpg" 
+                alt="חוות גוונים" 
+                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                referrerPolicy="no-referrer"
+              />
+            </div>
             <h3 className="text-3xl font-bold">לחבר דאטה לאדמה</h3>
             <p className="text-slate-200 leading-relaxed font-medium">
               מה בחווה? יער מאכל | גינת ירק אקולוגית | שלולית חורף | ייצור קומפוסט | חממה ועוד

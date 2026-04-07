@@ -21,7 +21,7 @@ const Hero: React.FC = () => {
         <div className="w-32 h-2 bg-green-500 mx-auto mb-10 rounded-full"></div>
         
         <p className="text-2xl md:text-4xl font-light mb-4">
-          יותר מעשים, פחות דיבורים.
+          תיק העבודות שלי, רוצים לדעת במה אני מתעסק?
         </p>
         <p className="text-xl md:text-3xl font-bold text-green-400 mb-8">
           בואו נשמור על הכדור שלנו.
