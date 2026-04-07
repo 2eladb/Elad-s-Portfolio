@@ -22,7 +22,7 @@ const SYSTEM_INSTRUCTION = `
 - אם אינך יודע את התשובה, הצע ליצור קשר ישיר עם אלעד.
 `;
 
-export const sendChatMessage = async (history: { role: string; parts: { text: string }[] }[], newMessage: string): Promise<string> => {
+export const sendChatMessage = async (history, newMessage) => {
   if (!apiKey) {
     return "מפתח ה-API חסר. נא להגדיר את process.env.API_KEY.";
   }

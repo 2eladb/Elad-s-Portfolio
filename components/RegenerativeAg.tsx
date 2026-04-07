@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, animate } from 'motion/react';
-import SectionTitle from './SectionTitle';
-import FarmDashboard from './FarmDashboard';
+import SectionTitle from './SectionTitle.tsx';
+import FarmDashboard from './FarmDashboard.tsx';
 
 const Counter = ({ value, suffix = "" }: { value: number; suffix?: string }) => {
   const count = useMotionValue(0);

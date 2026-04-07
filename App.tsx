@@ -1,11 +1,11 @@
 import React from 'react';
-import Hero from './components/Hero';
-import Investments from './components/Investments';
-import RegenerativeAg from './components/RegenerativeAg';
-import MusicCommunity from './components/MusicCommunity';
-import TechEngine from './components/TechEngine';
-import Footer from './components/Footer';
-import ChatBot from './components/ChatBot';
+import Hero from './components/Hero.tsx';
+import Investments from './components/Investments.tsx';
+import RegenerativeAg from './components/RegenerativeAg.tsx';
+import MusicCommunity from './components/MusicCommunity.tsx';
+import TechEngine from './components/TechEngine.tsx';
+import Footer from './components/Footer.tsx';
+import ChatBot from './components/ChatBot.tsx';
 
 function App() {
   return (
