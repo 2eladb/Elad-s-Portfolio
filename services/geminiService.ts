@@ -1,4 +1,5 @@
 import { GoogleGenAI } from "@google/genai";
+import { ChatMessage } from "../types.ts";
 
 const apiKey = process.env.API_KEY || '';
 const ai = new GoogleGenAI({ apiKey });
@@ -22,7 +23,7 @@ const SYSTEM_INSTRUCTION = `
 - אם אינך יודע את התשובה, הצע ליצור קשר ישיר עם אלעד.
 `;
 
-export const sendChatMessage = async (history, newMessage) => {
+export const sendChatMessage = async (history: ChatMessage[], newMessage: string): Promise<string> => {
   if (!apiKey) {
     return "מפתח ה-API חסר. נא להגדיר את process.env.API_KEY.";
   }
@@ -33,11 +34,14 @@ export const sendChatMessage = async (history, newMessage) => {
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
       },
-      history: history,
+      history: history.map(msg => ({
+        role: msg.role,
+        parts: [{ text: msg.text }],
+      })),
     });
 
-    const result = await chat.sendMessage({ message: newMessage });
-    return result.text || "מצטער, לא הצלחתי לייצר תשובה כרגע.";
+    const response = await chat.sendMessage({ message: newMessage });
+    return response.text || "מצטער, לא הצלחתי לייצר תשובה כרגע.";
   } catch (error) {
     console.error("Gemini Error:", error);
     return "אירעה שגיאה בתקשורת עם השרת.";
