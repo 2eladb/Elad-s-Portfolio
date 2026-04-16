@@ -27,38 +27,11 @@ const RegenerativeAg: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">אדמה | חוות גוונים</h2>
           <p className="text-xl text-slate-200 max-w-2xl mx-auto">
-            על שטח של 14 דונם, הקמנו חווה אוקלוגית נסיונית
+            על שטח של 14 דונם, הקמנו חווה אוקלוגית נסיונית מקסימה!
           </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8 mb-16">
-          <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl text-center border border-white/20">
-            <div className="text-4xl font-bold mb-2">
-              <Counter value={72} suffix=" Tons" />
-            </div>
-            <div className="text-slate-300">פחמן שנאגר - מצטבר</div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl text-center border border-white/20">
-            <div className="text-4xl font-bold mb-2">
-              <Counter value={16} suffix=" Tons" />
-            </div>
-            <div className="text-slate-300">פחמן שנאגר בשנה האחרונה</div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl text-center border border-white/20">
-            <div className="text-4xl font-bold mb-2">
-              <Counter value={282} />
-            </div>
-            <div className="text-slate-300">עצים במגוון ביולוגי</div>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl text-center border border-white/20">
-            <div className="text-4xl font-bold mb-2">
-              <Counter value={14000} suffix=" Sqm" />
-            </div>
-            <div className="text-slate-300">שטח בשיקום רגנרטיבי</div>
-          </div>
-        </div>
-
-        <div className="grid lg:grid-cols-5 gap-10 items-center">
+        <div className="grid lg:grid-cols-5 gap-10 items-center mb-16">
           <div className="lg:col-span-2 space-y-6">
             <div className="overflow-hidden rounded-2xl shadow-2xl">
               <img 
@@ -93,6 +66,39 @@ const RegenerativeAg: React.FC = () => {
           <div className="lg:col-span-3">
              <FarmDashboard />
           </div>
+        </div>
+
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl text-center border border-white/20">
+            <div className="text-4xl font-bold mb-2">
+              <Counter value={88} suffix=" Tons" />
+            </div>
+            <div className="text-slate-300">פחמן שנאגר - מצטבר מאז 2021</div>
+          </div>
+          <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl text-center border border-white/20">
+            <div className="text-4xl font-bold mb-2">
+              <Counter value={16} suffix=" Tons/Year" />
+            </div>
+            <div className="text-slate-300">קצב ספיחה שנתי נוכחי</div>
+          </div>
+          <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl text-center border border-white/20">
+            <div className="text-4xl font-bold mb-2">
+              <Counter value={282} />
+            </div>
+            <div className="text-slate-300">עצים (מעל 80 זנים שונים)</div>
+          </div>
+          <div className="bg-white/10 backdrop-blur-md p-8 rounded-2xl text-center border border-white/20">
+            <div className="text-4xl font-bold mb-2">
+              <Counter value={14000} suffix=" Sqm" />
+            </div>
+            <div className="text-slate-300">שטח בניהול רגנרטיבי</div>
+          </div>
+        </div>
+
+        <div className="text-center mb-16">
+           <p className="text-lg text-green-400 font-bold max-w-3xl mx-auto italic">
+             "האימפקט של חוות גוונים שווה ערך לנטרול פליטות של 71,000 קילומטרים נסיעה ברכב בנזין משפחתי בכל שנה"
+           </p>
         </div>
       </div>
     </section>

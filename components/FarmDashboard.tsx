@@ -3,8 +3,8 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 
 interface DataPoint {
   name: string;
-  carbon: number;
-  moisture: number;
+  soil: number;
+  trees: number;
 }
 
 const FarmDashboard: React.FC = () => {
@@ -12,14 +12,12 @@ const FarmDashboard: React.FC = () => {
 
   useEffect(() => {
     const generateData = () => {
-      const initialData: DataPoint[] = [];
-      for (let i = 0; i < 7; i++) {
-        initialData.push({
-          name: `יום ${i + 1}`,
-          carbon: Math.floor(Math.random() * 50) + 100 + (i * 10),
-          moisture: Math.floor(Math.random() * 30) + 40,
-        });
-      }
+      const initialData: DataPoint[] = [
+        { name: '2024', soil: 13.5, trees: 2.5 },
+        { name: '2027', soil: 13.5, trees: 4.5 },
+        { name: '2030', soil: 13.5, trees: 6.5 },
+        { name: '2035', soil: 13.5, trees: 9.5 },
+      ];
       setData(initialData);
     };
 
@@ -30,8 +28,8 @@ const FarmDashboard: React.FC = () => {
     <div className="bg-white p-6 rounded-xl shadow-lg border border-slate-100">
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h3 className="text-xl font-bold text-slate-800">דשבורד מעקב קרקע</h3>
-          <p className="text-sm text-slate-500">נתונים בזמן אמת - חוות גוונים</p>
+          <h3 className="text-xl font-bold text-slate-800">תחזית ספיחת פחמן</h3>
+          <p className="text-sm text-slate-500">צפי צמיחה (Tons CO2/Year)</p>
         </div>
         <div className="flex items-center space-x-2 space-x-reverse">
           <span className="flex h-3 w-3 relative">
@@ -46,7 +44,11 @@ const FarmDashboard: React.FC = () => {
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data}>
             <defs>
-              <linearGradient id="colorCarbon" x1="0" y1="0" x2="0" y2="1">
+              <linearGradient id="colorSoil" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#4d7c0f" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#4d7c0f" stopOpacity={0} />
+              </linearGradient>
+              <linearGradient id="colorTrees" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="5%" stopColor="#10b981" stopOpacity={0.8} />
                 <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
               </linearGradient>
@@ -59,11 +61,21 @@ const FarmDashboard: React.FC = () => {
             />
             <Area 
               type="monotone" 
-              dataKey="carbon" 
+              dataKey="soil" 
+              stackId="1"
+              stroke="#4d7c0f" 
+              fillOpacity={1} 
+              fill="url(#colorSoil)" 
+              name='ספיחה בקרקע (טון)'
+            />
+            <Area 
+              type="monotone" 
+              dataKey="trees" 
+              stackId="1"
               stroke="#10b981" 
               fillOpacity={1} 
-              fill="url(#colorCarbon)" 
-              name='ספיחת פחמן (ק"ג)'
+              fill="url(#colorTrees)" 
+              name='ספיחה בעצים וביומסה (טון)'
             />
           </AreaChart>
         </ResponsiveContainer>
@@ -75,8 +87,8 @@ const FarmDashboard: React.FC = () => {
           <span className="text-sm text-green-600">שטח משוקם</span>
         </div>
         <div className="bg-blue-50 p-4 rounded-lg text-center">
-          <span className="block text-2xl font-bold text-blue-700">840 ק"ג</span>
-          <span className="text-sm text-blue-600">פחמן הוסר החודש</span>
+          <span className="block text-2xl font-bold text-blue-700">1,330 ק"ג</span>
+          <span className="text-sm text-blue-600">ממוצע חודשי</span>
         </div>
       </div>
     </div>
