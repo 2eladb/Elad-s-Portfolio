@@ -3,7 +3,6 @@ import Hero from './components/Hero.tsx';
 import Investments from './components/Investments.tsx';
 import RegenerativeAg from './components/RegenerativeAg.tsx';
 import MusicCommunity from './components/MusicCommunity.tsx';
-import TechEngine from './components/TechEngine.tsx';
 import Footer from './components/Footer.tsx';
 import ChatBot from './components/ChatBot.tsx';
 
@@ -14,7 +13,6 @@ function App() {
         <Hero />
         <Investments />
         <RegenerativeAg />
-        <TechEngine />
         <MusicCommunity />
       </main>
       <Footer />
