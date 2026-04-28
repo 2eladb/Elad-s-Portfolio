@@ -11,7 +11,7 @@ const MusicCommunity: React.FC = () => {
             
             {/* Music Info */}
             <div className="space-y-6">
-              <div className="flex items-center space-x-4 space-x-reverse">
+              <div className="flex items-center gap-10">
                 <div className="relative group">
                   <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
                   <div className="relative w-24 h-24 bg-white shadow-sm rounded-2xl p-2 border border-slate-200 overflow-hidden flex items-center justify-center">
@@ -80,8 +80,8 @@ const MusicCommunity: React.FC = () => {
 
             {/* Embedded Player Card */}
             <div className="bg-white p-6 rounded-2xl border border-slate-200 overflow-hidden shadow-xl">
-              <div className="flex items-center space-x-4 space-x-reverse mb-6">
-                <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center">
+              <div className="flex items-center gap-8 mb-6">
+                <div className="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
                   <Music className="h-6 w-6" />
                 </div>
                 <div>
@@ -112,8 +112,8 @@ const MusicCommunity: React.FC = () => {
             {/* Community Content */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <div className="flex items-center space-x-3 space-x-reverse">
-                  <div className="p-3 bg-yellow-500 rounded-xl text-white shadow-lg shadow-yellow-500/20">
+                <div className="flex items-center gap-8">
+                  <div className="p-3 bg-yellow-500 rounded-xl text-white shadow-lg shadow-yellow-500/20 flex-shrink-0">
                     <Users className="h-6 w-6" />
                   </div>
                   <h3 className="text-3xl font-bold">קהילה והתנדבות</h3>
@@ -196,8 +196,8 @@ const PartnerCard: React.FC<{
   };
 
   return (
-    <div className="flex items-start space-x-4 space-x-reverse p-4 bg-slate-800/40 rounded-2xl border border-slate-700/50 hover:bg-slate-800/60 transition-all group">
-      <div className={`p-3 rounded-xl ${colorMap[color]}`}>
+    <div className="flex items-start gap-8 p-4 bg-slate-800/40 rounded-2xl border border-slate-700/50 hover:bg-slate-800/60 transition-all group">
+      <div className={`p-3 rounded-xl flex-shrink-0 ${colorMap[color]}`}>
         {icon}
       </div>
       <div>
