@@ -1,7 +1,10 @@
 import { GoogleGenAI } from "@google/genai";
 import { ChatMessage } from "../types.ts";
 
-const apiKey = process.env.API_KEY || '';
+// If you want to paste your key directly for testing (uncheck this for production!)
+const MANUAL_API_KEY = ''; 
+
+const apiKey = MANUAL_API_KEY || (import.meta.env.VITE_API_KEY as string) || '';
 const ai = new GoogleGenAI({ apiKey });
 
 const SYSTEM_INSTRUCTION = `
@@ -25,7 +28,7 @@ const SYSTEM_INSTRUCTION = `
 
 export const sendChatMessage = async (history: ChatMessage[], newMessage: string): Promise<string> => {
   if (!apiKey) {
-    return "מפתח ה-API חסר. נא להגדיר את process.env.API_KEY.";
+    return "מפתח ה-API חסר. נא להגדיר את VITE_API_KEY או MANUAL_API_KEY.";
   }
 
   try {
