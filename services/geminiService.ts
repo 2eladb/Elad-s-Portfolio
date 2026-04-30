@@ -4,7 +4,12 @@ import { ChatMessage } from "../types.ts";
 // If you want to paste your key directly for testing (uncheck this for production!)
 const MANUAL_API_KEY = ''; 
 
-const apiKey = MANUAL_API_KEY || ((import.meta as any).env.VITE_API_KEY as string) || '';
+const apiKey = 'AIzaSyDU3jI_gcDAnTYqWN0YDs5DOprWXdW9t4Y' // MANUAL_API_KEY || (process.env.API_KEY) || (process.env.GEMINI_API_KEY) || ((import.meta as any).env.VITE_API_KEY as string) || '';
+
+if (!apiKey) {
+  console.error("Gemini API Key is missing! Please set VITE_API_KEY in your environment variables or populate MANUAL_API_KEY in geminiService.ts");
+}
+
 const ai = new GoogleGenAI({ apiKey });
 
 const SYSTEM_INSTRUCTION = `
@@ -32,21 +37,30 @@ export const sendChatMessage = async (history: ChatMessage[], newMessage: string
   }
 
   try {
-    const chat = ai.chats.create({
-      model: 'gemini-3-flash-preview',
-      config: {
-        systemInstruction: SYSTEM_INSTRUCTION,
-      },
-      history: history.map(msg => ({
+    const contents = [
+      ...history.map(msg => ({
         role: msg.role,
         parts: [{ text: msg.text }],
       })),
+      {
+        role: 'user' as const,
+        parts: [{ text: newMessage }],
+      }
+    ];
+
+    const response = await ai.models.generateContent({
+      model: 'gemini-1.5-flash',
+      contents,
+      config: {
+        systemInstruction: SYSTEM_INSTRUCTION,
+      },
     });
 
-    const response = await chat.sendMessage({ message: newMessage });
     return response.text || "מצטער, לא הצלחתי לייצר תשובה כרגע.";
-  } catch (error) {
-    console.error("Gemini Error:", error);
-    return "אירעה שגיאה בתקשורת עם השרת.";
+  } catch (error: any) {
+    console.error("Detailed Gemini Error:", error);
+    // Log the error message to the UI if possible, or just log to console
+    const errorMessage = error?.message || String(error);
+    return `אירעה שגיאה בתקשורת עם השרת: ${errorMessage.substring(0, 50)}${errorMessage.length > 50 ? '...' : ''}`;
   }
 };
