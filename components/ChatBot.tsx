@@ -30,14 +30,9 @@ const ChatBot: React.FC = () => {
     setMessages(prev => [...prev, { role: 'user', text: userMsg }]);
     setIsLoading(true);
 
-    // Format history for Gemini API
-    const history = messages.map(m => ({
-      role: m.role,
-      parts: [{ text: m.text }]
-    }));
-
+    // Send raw history to service, which will handle API-specific formatting
     try {
-      const response = await sendChatMessage(history, userMsg);
+      const response = await sendChatMessage(messages, userMsg);
       setMessages(prev => [...prev, { role: 'model', text: response }]);
     } catch (error) {
       setMessages(prev => [...prev, { role: 'model', text: 'מצטער, נתקלתי בבעיה.' }]);

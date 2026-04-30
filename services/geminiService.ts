@@ -39,11 +39,11 @@ export const sendChatMessage = async (history: ChatMessage[], newMessage: string
   try {
     const contents = [
       ...history.map(msg => ({
-        role: msg.role,
+        role: msg.role === 'user' ? 'user' : 'model',
         parts: [{ text: msg.text }],
       })),
       {
-        role: 'user' as const,
+        role: 'user',
         parts: [{ text: newMessage }],
       }
     ];
@@ -59,8 +59,7 @@ export const sendChatMessage = async (history: ChatMessage[], newMessage: string
     return response.text || "מצטער, לא הצלחתי לייצר תשובה כרגע.";
   } catch (error: any) {
     console.error("Detailed Gemini Error:", error);
-    // Log the error message to the UI if possible, or just log to console
     const errorMessage = error?.message || String(error);
-    return `אירעה שגיאה בתקשורת עם השרת: ${errorMessage.substring(0, 50)}${errorMessage.length > 50 ? '...' : ''}`;
+    return `אירעה שגיאה בתקשורת עם השרת: ${errorMessage.substring(0, 100)}`;
   }
 };
