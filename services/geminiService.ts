@@ -1,16 +1,15 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { ChatMessage } from "../types.ts";
 
-// If you want to paste your key directly for testing (uncheck this for production!)
-const MANUAL_API_KEY = ''; 
+const MANUAL_API_KEY = 'AIzaSyDU3jI_gcDAnTYqWN0YDs5DOprWXdW9t4Y'; 
 
-const apiKey = 'AIzaSyDU3jI_gcDAnTYqWN0YDs5DOprWXdW9t4Y' // MANUAL_API_KEY || (process.env.API_KEY) || (process.env.GEMINI_API_KEY) || ((import.meta as any).env.VITE_API_KEY as string) || '';
+const apiKey = MANUAL_API_KEY || (process.env.API_KEY) || (process.env.GEMINI_API_KEY) || ((import.meta as any).env.VITE_API_KEY as string) || '';
 
 if (!apiKey) {
-  console.error("Gemini API Key is missing! Please set VITE_API_KEY in your environment variables or populate MANUAL_API_KEY in geminiService.ts");
+  console.error("Gemini API Key is missing!");
 }
 
-const ai = new GoogleGenAI({ apiKey });
+const genAI = new GoogleGenerativeAI(apiKey);
 
 const SYSTEM_INSTRUCTION = `
 אתה העוזר האישי הווירטואלי באתר הפורטפוליו של אלעד בן יצחק.
@@ -33,10 +32,15 @@ const SYSTEM_INSTRUCTION = `
 
 export const sendChatMessage = async (history: ChatMessage[], newMessage: string): Promise<string> => {
   if (!apiKey) {
-    return "מפתח ה-API חסר. נא להגדיר את VITE_API_KEY או MANUAL_API_KEY.";
+    return "מפתח ה-API חסר.";
   }
 
   try {
+    const model = genAI.getGenerativeModel({ 
+      model: "gemini-1.5-flash",
+      systemInstruction: SYSTEM_INSTRUCTION
+    });
+
     const contents = [
       ...history.map(msg => ({
         role: msg.role === 'user' ? 'user' : 'model',
@@ -48,18 +52,13 @@ export const sendChatMessage = async (history: ChatMessage[], newMessage: string
       }
     ];
 
-    const response = await ai.models.generateContent({
-      model: 'gemini-1.5-flash',
-      contents,
-      config: {
-        systemInstruction: SYSTEM_INSTRUCTION,
-      },
-    });
-
-    return response.text || "מצטער, לא הצלחתי לייצר תשובה כרגע.";
+    const result = await model.generateContent({ contents });
+    const response = await result.response;
+    return response.text() || "מצטער, לא הצלחתי לייצר תשובה כרגע.";
   } catch (error: any) {
     console.error("Detailed Gemini Error:", error);
     const errorMessage = error?.message || String(error);
     return `אירעה שגיאה בתקשורת עם השרת: ${errorMessage.substring(0, 100)}`;
   }
 };
+
