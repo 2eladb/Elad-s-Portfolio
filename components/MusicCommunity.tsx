@@ -2,6 +2,8 @@ import React from 'react';
 import { Music, Users, ExternalLink, Heart, Waves, Compass, BookOpen } from 'lucide-react';
 
 const MusicCommunity: React.FC = () => {
+  const [logoError, setLogoError] = React.useState(false);
+
   return (
     <>
       {/* EBEAT Section - Light Background */}
@@ -15,14 +17,18 @@ const MusicCommunity: React.FC = () => {
                 <div className="relative group">
                   <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
                   <div className="relative w-24 h-24 bg-white shadow-sm rounded-2xl p-2 border border-slate-200 overflow-hidden flex items-center justify-center">
-                    <img 
-                      src="/ebeat_logo.png" 
-                      alt="EBEAT Logo" 
-                      className="w-full h-full object-contain"
-                      onError={(e) => {
-                        e.currentTarget.src = 'https://via.placeholder.com/100?text=EBEAT';
-                      }}
-                    />
+                    {logoError ? (
+                      <div className="w-full h-full bg-purple-50 flex items-center justify-center text-purple-600 font-bold">
+                        EBEAT
+                      </div>
+                    ) : (
+                      <img 
+                        src="/ebeat_logo.png" 
+                        alt="EBEAT Logo" 
+                        className="w-full h-full object-contain"
+                        onError={() => setLogoError(true)}
+                      />
+                    )}
                   </div>
                 </div>
                 <div>

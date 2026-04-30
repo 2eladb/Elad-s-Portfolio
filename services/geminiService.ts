@@ -4,7 +4,7 @@ import { ChatMessage } from "../types.ts";
 // If you want to paste your key directly for testing (uncheck this for production!)
 const MANUAL_API_KEY = ''; 
 
-const apiKey = MANUAL_API_KEY || (import.meta.env.VITE_API_KEY as string) || '';
+const apiKey = MANUAL_API_KEY || ((import.meta as any).env.VITE_API_KEY as string) || '';
 const ai = new GoogleGenAI({ apiKey });
 
 const SYSTEM_INSTRUCTION = `
