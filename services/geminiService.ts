@@ -3,7 +3,29 @@ import { ChatMessage } from "../types.ts";
 
 const MANUAL_API_KEY = 'AIzaSyDU3jI_gcDAnTYqWN0YDs5DOprWXdW9t4Y'; 
 
-const apiKey = MANUAL_API_KEY || (process.env.API_KEY) || (process.env.GEMINI_API_KEY) || ((import.meta as any).env.VITE_API_KEY as string) || '';
+// Browser-safe way to access environment variables in Vite
+const getApiKey = () => {
+  // First try the manual key provided by the user
+  if (MANUAL_API_KEY) return MANUAL_API_KEY;
+
+  // Then try Vite-style environment variables
+  if (import.meta.env && import.meta.env.VITE_API_KEY) {
+    return import.meta.env.VITE_API_KEY;
+  }
+
+  // Then try process.env (handled by AI Studio during build)
+  try {
+    if (typeof process !== 'undefined' && process.env) {
+      return process.env.GEMINI_API_KEY || process.env.API_KEY;
+    }
+  } catch (e) {
+    // process might not be defined in some environments
+  }
+
+  return '';
+};
+
+const apiKey = getApiKey();
 
 if (!apiKey) {
   console.error("Gemini API Key is missing!");
@@ -48,7 +70,7 @@ export const sendChatMessage = async (history: ChatMessage[], newMessage: string
     ];
 
     const response = await ai.models.generateContent({
-      model: "gemini-flash-latest",
+      model: "gemini-3-flash-preview",
       contents,
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
