@@ -35,7 +35,7 @@ const RegenerativeAg: React.FC = () => {
           <div className="lg:col-span-2 space-y-6">
             <div className="overflow-hidden rounded-2xl shadow-2xl">
               <img 
-                src="farm.jpg" 
+                src="/farm.jpg?v=1" 
                 alt="חוות גוונים" 
                 className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-500"
               />
