@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenAI } from "@google/genai";
 import { ChatMessage } from "../types.ts";
 
 const MANUAL_API_KEY = 'AIzaSyDU3jI_gcDAnTYqWN0YDs5DOprWXdW9t4Y'; 
@@ -9,7 +9,7 @@ if (!apiKey) {
   console.error("Gemini API Key is missing!");
 }
 
-const genAI = new GoogleGenerativeAI(apiKey);
+const ai = new GoogleGenAI({ apiKey });
 
 const SYSTEM_INSTRUCTION = `
 אתה העוזר האישי הווירטואלי באתר הפורטפוליו של אלעד בן יצחק.
@@ -36,11 +36,6 @@ export const sendChatMessage = async (history: ChatMessage[], newMessage: string
   }
 
   try {
-    const model = genAI.getGenerativeModel({ 
-      model: "gemini-1.5-flash",
-      systemInstruction: SYSTEM_INSTRUCTION
-    });
-
     const contents = [
       ...history.map(msg => ({
         role: msg.role === 'user' ? 'user' : 'model',
@@ -52,9 +47,15 @@ export const sendChatMessage = async (history: ChatMessage[], newMessage: string
       }
     ];
 
-    const result = await model.generateContent({ contents });
-    const response = await result.response;
-    return response.text() || "מצטער, לא הצלחתי לייצר תשובה כרגע.";
+    const response = await ai.models.generateContent({
+      model: "gemini-flash-latest",
+      contents,
+      config: {
+        systemInstruction: SYSTEM_INSTRUCTION,
+      },
+    });
+
+    return response.text || "מצטער, לא הצלחתי לייצר תשובה כרגע.";
   } catch (error: any) {
     console.error("Detailed Gemini Error:", error);
     const errorMessage = error?.message || String(error);
