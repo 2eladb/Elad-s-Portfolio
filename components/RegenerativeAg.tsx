@@ -35,10 +35,9 @@ const RegenerativeAg: React.FC = () => {
           <div className="lg:col-span-2 space-y-6">
             <div className="overflow-hidden rounded-2xl shadow-2xl">
               <img 
-                src="/farm.jpg" 
+                src="farm.jpg" 
                 alt="חוות גוונים" 
                 className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-500"
-                referrerPolicy="no-referrer"
               />
             </div>
             <h3 className="text-3xl font-bold">לחבר דאטה לאדמה</h3>
