@@ -13,3 +13,8 @@ export interface ChartData {
   carbon: number;
   moisture: number;
 }
+
+export interface ChatMessage {
+  role: 'user' | 'model';
+  text: string;
+}

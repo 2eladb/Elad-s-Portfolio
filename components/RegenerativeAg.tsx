@@ -37,7 +37,7 @@ const RegenerativeAg: React.FC = () => {
               <img 
                 src="farm.jpg" 
                 alt="חוות גוונים" 
-                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-500"
                 referrerPolicy="no-referrer"
               />
             </div>
