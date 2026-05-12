@@ -7,12 +7,11 @@ export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
       publicDir: 'public',
-      base: '/',
+      base: './',
       server: {
         port: 3000,
         host: '0.0.0.0',
       },
-      base: '/',
       plugins: [
         react(),
         tailwindcss()

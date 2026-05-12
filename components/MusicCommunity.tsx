@@ -23,7 +23,7 @@ const MusicCommunity: React.FC = () => {
                       </div>
                     ) : (
                       <img 
-                        src="/ebeat_logo.png" 
+                        src="ebeat_logo.png" 
                         alt="EBEAT Logo" 
                         className="w-full h-full object-contain"
                         onError={() => setLogoError(true)}
