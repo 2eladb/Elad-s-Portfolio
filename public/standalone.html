@@ -416,7 +416,7 @@
                     <div className="grid lg:grid-cols-5 gap-10 items-center mb-16">
                         <div className="lg:col-span-2 space-y-6">
                             <div className="overflow-hidden rounded-2xl shadow-2xl">
-                                <img src="farm.jpg" alt="חוות גוונים" className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-500" />
+                                <img src="/farm_v2.jpg" alt="חוות גוונים" className="w-full h-[400px] object-cover hover:scale-105 transition-transform duration-500" />
                             </div>
                             <h3 className="text-3xl font-bold">לחבר דאטה לאדמה</h3>
                             <p className="text-slate-200 leading-relaxed font-medium">מה בחווה? יער מאכל | גינת ירק אקולוגית | שלולית חורף | ייצור קומפוסט | חממה ועוד</p>
@@ -499,18 +499,11 @@
                                         <div className="relative group">
                                             <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-25 transition duration-1000"></div>
                                             <div className="relative w-24 h-24 bg-white shadow-sm rounded-2xl p-2 border border-slate-200 overflow-hidden flex items-center justify-center">
-                                                {logoError ? (
-                                                    <div className="w-full h-full bg-purple-50 flex items-center justify-center text-purple-600 font-bold">
-                                                        EBEAT
-                                                    </div>
-                                                ) : (
-                                                    <img 
-                                                        src="ebeat_logo.png" 
-                                                        alt="EBEAT Logo" 
-                                                        className="w-full h-full object-contain"
-                                                        onError={() => setLogoError(true)}
-                                                    />
-                                                )}
+                                                <img 
+                                                    src="/ebeat_logo.png" 
+                                                    alt="EBEAT Logo" 
+                                                    className="w-full h-full object-contain"
+                                                />
                                             </div>
                                         </div>
                                         <div>
@@ -710,7 +703,6 @@
                     <MusicCommunity />
                 </main>
                 <Footer />
-                <ChatBot />
             </div>
         );
 
