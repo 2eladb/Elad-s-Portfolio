@@ -2,8 +2,6 @@ import React from 'react';
 import { Music, Users, ExternalLink, Heart, Waves, Compass, BookOpen } from 'lucide-react';
 
 const MusicCommunity: React.FC = () => {
-  const [logoError, setLogoError] = React.useState(false);
-
   return (
     <>
       {/* EBEAT Section - Light Background */}
