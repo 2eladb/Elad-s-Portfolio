@@ -87,6 +87,20 @@ const investments: InvestmentData[] = [
     url: 'https://www.gravityclimatech.com',
     urlLabel: 'לאתר הקרן',
     gradient: 'from-slate-500 to-slate-700'
+  },
+  {
+    id: 'xfloat',
+    name: 'X-Float',
+    tag: 'Renewables / ClimateTech',
+    tagColor: 'bg-green-50 text-green-700',
+    year: '2026',
+    slogan: 'מערכת סולארית צפה עוקבת אנרגיה',
+    description: 'מערכת ייחודית המאפשרת למתקנים סולאריים צפים (FPV) לעקוב אחר אנרגיית השמש בצורה מדויקת, ללא צורך במנועים כבדים או רכיבים מכניים מורכבים. הטכנולוגיה מנצלת את כוח הציציות והידרו-דינמיקה כדי להניע את הפאנלים, ובכך מגדילה את תפוקת החשמל בשרשרת האספקה בעשרות אחוזים, תוך צמצום אידוי המים ושמירה על מאגרים טבעיים ומלאכותיים.',
+    whyInvested: 'כי שטח הפנים של מאגרי מים בעולם הוא משאב אדיר ולא מנוצל לייצור אנרגיה נקייה. X-Float פותרת את מגבלת היעילות של פאנלים צפים סטטיים – היא מביאה את יתרונות העקיבה (Tracking) לסביבה ימית בעלות נמוכה, באמינות מכנית גבוהה ותוך הגנה על המערכת האקולוגית המקומית.',
+    status: 'החברה מציגה מוצר מסחרי מוכח עם פריסות בשטח, ונמצאת בשלבי הרחבה גלובליים מול חברות אנרגיה ותשתיות מובילות בעולם, עם פוטנציאל שינוי עמוק בשוק האנרגיה המתחדשת הצפה.',
+    url: 'https://xfloat.co/',
+    urlLabel: 'לאתר החברה',
+    gradient: 'from-blue-500 to-emerald-600'
   }
 ];
 
@@ -191,7 +205,7 @@ const Investments: React.FC = () => {
           subtitle=" השקעות כלכליות שמשנות מציאות. מחפש פתרונות אמיתיים וסקיילביליים למשבר האקלים"
         />
 
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mb-16 items-start">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 mb-16 items-start">
           {investments.map((item) => (
             <InvestmentCard 
               key={item.id} 
