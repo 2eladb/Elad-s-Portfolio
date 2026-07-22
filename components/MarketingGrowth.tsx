@@ -7,7 +7,7 @@ const MarketingGrowth: React.FC = () => {
     <section id="marketing-growth" className="py-24 bg-slate-50 text-slate-900 border-t border-b border-slate-200">
       <div className="container mx-auto px-6">
         <SectionTitle 
-          title="מערך שיווק בינלאומי וצמיחה" 
+          title="שיווק בינלאומי וצמיחה" 
           subtitle="Marketing & Growth"
         />
 
